@@ -8,7 +8,7 @@ def my_sum(first_num, second_num):
 
 def test_sum():
     """Test for my_sum function."""
-    assert my_sum(1, 3) == 3
+    assert my_sum(1, 2) == 3
     assert round(my_sum(2.1, 4.2), 2) == 6.3    # noqa: WPS432
 
 
