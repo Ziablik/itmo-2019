@@ -7,7 +7,7 @@ import os   # noqa I001
 dot = '.'
 directory = 'directory'
 test_file = 'test_file.py'
-date_time = '2020-02-07 07:51:24'
+date_time = '2019-02-07 07:51:24'
 
 
 @pytest.fixture(params=[
@@ -84,9 +84,9 @@ def rm_fixture(tmp_path, request):
 
 
 @pytest.fixture(params=[
-    ('conftest.py', True),
-    ('test/.py', False),
-    (directory, False),
+    ('conftest.py', False),
+    (test_file, True),
+    (directory, True),
 ])
 def contains_fixture(tmp_path, request):
     """Fixture for contains command."""

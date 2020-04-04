@@ -44,8 +44,8 @@ def rm_execution(file_name):
 def contains_execution(file_name):
     """Contains command execution function."""
     if os.path.isfile(file_name):
-        return True
-    return False
+        return False
+    return True
 
 
 def since_execution(given_datetime, directory=None):    # noqa: C901
