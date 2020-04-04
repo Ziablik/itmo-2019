@@ -25,7 +25,7 @@ def mk_execution(file_name):
         if os.path.isfile(file_name):
             return False
         else:
-            new_file = open(file_name, 'w+')
+            new_file = open(file_name, 'w+')    # noqa: WPS515
             new_file.close()
         return True
     except OSError:

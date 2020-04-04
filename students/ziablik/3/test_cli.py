@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import subprocess   # noqa: S404
+import subprocess   # noqa: S404,I001
 
 from cli import contains_execution, ls_execution    # noqa I001
 from cli import mk_execution, rm_execution, since_execution # noqa I001
