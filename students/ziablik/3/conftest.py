@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import pytest
-import os
+import pytest   # noqa I001
+import os   # noqa I001
 
 
 dot = '.'
@@ -33,8 +33,9 @@ date_time = '2020-02-07 07:51:24'
             test_file,
         ],
      ),
-    ])
+])
 def ls_fixture(tmp_path, request):
+    """Fixture for ls command."""
     first_param = request.param[0]
     path = tmp_path / first_param
     path.mkdir()
@@ -54,6 +55,7 @@ def ls_fixture(tmp_path, request):
     ('/test/.py', False),
 ])
 def mk_fixture(request):
+    """Fixture for mk command."""
     first_param = request.param[0]
     yield request.param
     if os.path.isfile(first_param):
@@ -67,6 +69,7 @@ def mk_fixture(request):
     ('/test/.py', False),
 ])
 def rm_fixture(tmp_path, request):
+    """Fixture for rm command."""
     first_param = request.param[0]
     if dot in first_param:
         try:  # noqa WPS229
@@ -86,6 +89,7 @@ def rm_fixture(tmp_path, request):
     (directory, False),
 ])
 def contains_fixture(tmp_path, request):
+    """Fixture for contains command."""
     first_param = request.param[0]
     if dot not in first_param:
         new_element = tmp_path / first_param
@@ -126,6 +130,7 @@ def contains_fixture(tmp_path, request):
         'Using mask Y-M-D H:M:S',
      )])
 def since_fixture(tmp_path, request):
+    """Fixture for since command."""
     first_param = request.param[0]
     path = tmp_path / first_param
     path.mkdir()
@@ -146,4 +151,5 @@ def since_fixture(tmp_path, request):
     ('rm', test_file),
 ])
 def integration_fixture(request):
+    """Fixture for integration tests."""
     yield request.param
