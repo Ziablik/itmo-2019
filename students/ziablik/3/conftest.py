@@ -52,13 +52,13 @@ def ls_fixture(tmp_path, request):
 @pytest.fixture(params=[
     (file_name, True),
     ('имя.py', True),
-    ('conftest1.py', False),
+    ('conftest.py', False),
     ('test/.py', False),
 ])
 def mk_fixture(request):
     """Fixture for mk command."""
     first_param = request.param[0]
-    if first_param == 'conftest1.py':
+    if first_param == 'conftest.py':
         my_file = open(first_param, 'w+')  # noqa WPS515
         my_file.close()
     yield request.param
