@@ -6,7 +6,7 @@ import os   # noqa I001
 
 dot = '.'
 directory = 'directory'
-test_file = 'test_file.py'
+test_file = 'file_test.py'
 file_name = 'name.py'
 date_time = '2019-02-07 07:51:24'
 
