@@ -7,16 +7,16 @@ import os   # noqa I001
 
 def ls_execution(directory=None):
     """Ls command execution function."""
-    directories_and_files = []
+    dirs_and_files = []
     if directory is None:
         directory = os.getcwd()
     for dir_name in os.listdir(directory):
         if '.' not in dir_name:
-            directories_and_files.append(dir_name)
+            dirs_and_files.append(dir_name)
     for file_name in os.listdir(directory):
         if '.' in file_name:
-            directories_and_files.append(file_name)
-    return directories_and_files
+            dirs_and_files.append(file_name)
+    return dirs_and_files
 
 
 def mk_execution(file_name):
@@ -44,8 +44,8 @@ def rm_execution(file_name):
 def contains_execution(file_name):
     """Contains command execution function."""
     if os.path.isfile(file_name):
-        return False
-    return True
+        return True
+    return False
 
 
 def since_execution(given_datetime, directory=None):    # noqa: C901

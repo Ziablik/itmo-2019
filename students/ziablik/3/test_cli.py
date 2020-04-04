@@ -37,5 +37,6 @@ def test_since_execution(since_fixture):
 def test_integration(integration_fixture):
     """Integration Tests."""
     command, args = integration_fixture
-    callable_string = 'python cli.py {0} {1}'.format(command, args)
-    assert subprocess.call(callable_string) == 0    # noqa: S602
+    callable_string = 'python students/ziablik/3/cli.py {0} {1}'
+    callable_string = callable_string.format(command, args)
+    assert subprocess.call(callable_string, shell=True) == 0    # noqa: S602

@@ -52,7 +52,7 @@ def ls_fixture(tmp_path, request):
     (test_file, True),
     ('имя.py', True),
     ('conftest.py', False),
-    ('/test/.py', False),
+    ('test/.py', False),
 ])
 def mk_fixture(request):
     """Fixture for mk command."""
@@ -84,9 +84,9 @@ def rm_fixture(tmp_path, request):
 
 
 @pytest.fixture(params=[
-    ('conftest.py', False),
-    (test_file, True),
-    (directory, True),
+    ('successfully.py', True),
+    (test_file, False),
+    (directory, False),
 ])
 def contains_fixture(tmp_path, request):
     """Fixture for contains command."""
@@ -94,7 +94,12 @@ def contains_fixture(tmp_path, request):
     if dot not in first_param:
         new_element = tmp_path / first_param
         new_element.mkdir()
+    elif first_param == 'successfully.py':
+        my_file = open(first_param, 'w+')  # noqa WPS515
+        my_file.close()
     yield request.param
+    if os.path.isfile(first_param):
+        os.remove(first_param)
 
 
 @pytest.fixture(params=[
