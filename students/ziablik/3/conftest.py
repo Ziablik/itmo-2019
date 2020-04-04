@@ -7,6 +7,7 @@ import os   # noqa I001
 dot = '.'
 directory = 'directory'
 test_file = 'test_file.py'
+file_name = 'name.py'
 date_time = '2019-02-07 07:51:24'
 
 
@@ -49,24 +50,26 @@ def ls_fixture(tmp_path, request):
 
 
 @pytest.fixture(params=[
-    (test_file, True),
+    (file_name, True),
     ('имя.py', True),
-    ('conftest.py', False),
+    ('conftest1.py', False),
     ('test/.py', False),
 ])
 def mk_fixture(request):
     """Fixture for mk command."""
     first_param = request.param[0]
+    if first_param == 'conftest1.py':
+        my_file = open(first_param, 'w+')  # noqa WPS515
+        my_file.close()
     yield request.param
     if os.path.isfile(first_param):
-        if first_param != 'conftest.py':
-            os.remove(first_param)
+        os.remove(first_param)
 
 
 @pytest.fixture(params=[
-    (test_file, True),
+    (file_name, True),
     (directory, False),
-    ('/test/.py', False),
+    ('test/.py', False),
 ])
 def rm_fixture(tmp_path, request):
     """Fixture for rm command."""
@@ -85,7 +88,7 @@ def rm_fixture(tmp_path, request):
 
 @pytest.fixture(params=[
     ('successfully.py', True),
-    (test_file, False),
+    (file_name, False),
     (directory, False),
 ])
 def contains_fixture(tmp_path, request):
