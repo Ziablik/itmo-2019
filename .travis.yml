@@ -1,9 +1,5 @@
 dist: xenial
 
-env:
-  global:
-    - PYPI_USERNAME=urllib3
-
 jobs:
   include:
     # Python code quality:
@@ -22,18 +18,6 @@ jobs:
       node_js: 10.16
       install: npm install
       script: npm run test
-
-stages:
-  - name: test
-    if: tag IS blank
-
-  # Run integration tests for release candidates
-  - name: integration
-    if: type = pull_request AND head_branch =~ ^release-[\d.]+$ AND tag IS blank
-
-  # Deploy on any tags
-  - name: deploy
-    if: tag IS present AND tag =~ /^(\d+\.\d+(?:.\d+)?)$/ AND repo = urllib3/urllib3
 
 notifications:
   email:
