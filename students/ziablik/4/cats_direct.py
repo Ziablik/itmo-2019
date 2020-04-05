@@ -3,12 +3,13 @@
 import argparse
 import shutil
 from typing import Tuple
-import os
-import requests
-from urllib3 import HTTPResponse
+import os   # noqa: I001
+import requests     # noqa: I003
+from urllib3 import HTTPResponse    # noqa: I001
 
 
 def create_parser() -> argparse.ArgumentParser:
+    """Creates parser for command line arguments."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--count',
@@ -19,12 +20,14 @@ def create_parser() -> argparse.ArgumentParser:
 
 
 def fetch_cat_fact() -> str:
+    """Fetches cat's fact."""
     response = requests.get('https://cat-fact.herokuapp.com/facts/random')
     response.raise_for_status()
     return response.json()['text']
 
 
 def fetch_cat_image() -> Tuple[str, HTTPResponse]:
+    """Fetches cat's image."""
     response = requests.get('https://aws.random.cat/meow')
     response.raise_for_status()
 
@@ -39,6 +42,7 @@ def save_cat(
     fact: str,
     image: Tuple[str, HTTPResponse],
 ) -> None:
+    """Saves cat's info to the disk."""
     if not os.path.isdir('temp'):
         os.mkdir('temp')
     fact_path = 'temp/cat_{0}_fact.txt'.format(index)
@@ -50,13 +54,19 @@ def save_cat(
         shutil.copyfileobj(image[1], image_file)
 
 
-if __name__ == '__main__':
+def main() -> None:
+    """Fetches cats and saves the into temp folder."""
     cats_to_fetch = create_parser().parse_args().count
     if not cats_to_fetch:
-        print('No cats :(')
+        print('No cats :(')  # noqa: T001
+        return
 
     for cat_index in range(1, cats_to_fetch + 1):
         fact = fetch_cat_fact()
         image = fetch_cat_image()
         save_cat(cat_index, fact, image)
-    print('Cats downloaded!')
+    print('Cats downloaded!')  # noqa: T001
+
+
+if __name__ == '__main__':
+    main()
