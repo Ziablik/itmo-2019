@@ -14,7 +14,6 @@ from cats_direct import (
 
 class CatProcessor(object):
     """
-
     Knows exactly how to process cats.
 
     Only uses composition.

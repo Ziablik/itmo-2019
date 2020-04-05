@@ -4,7 +4,7 @@ import argparse
 import shutil
 from typing import Tuple
 import os   # noqa: I001
-import requests     # noqa: I003
+import requests     # noqa: I003, I001
 from urllib3 import HTTPResponse    # noqa: I001
 
 
