@@ -10,7 +10,8 @@ jobs:
         - curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
         - source "$HOME/.poetry/env"
       install: poetry install
-      
+      script:
+        - make test
 
     # Linting danger, code duplicates, and markdown:
     - language: node_js
