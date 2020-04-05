@@ -10,7 +10,7 @@ import pytest
 import cats_direct
 
 
-class CatsDirectTester(unittest.TestCase):
+class CatsDirectTester(unittest.TestCase):  # noqa WPS230
     """Tests for cats_direct."""
 
     def setUp(self) -> None:
@@ -67,10 +67,10 @@ class CatsDirectTester(unittest.TestCase):
 
     def test_integration(self):
         """Integration test."""
-        format_str = 'python students/ziablik/4/cats_direct.py {0}'
+        format_str = 'python students/ziablik/4/cats_direct.py {0}'  # noqa E800
         arg = '--count=1'
         command_str = format_str.format(arg)
-        assert subprocess.call(command_str, shell=True) == 0
+        assert subprocess.call(command_str, shell=True) == 0  # noqa: S602, E501
 
 
 if __name__ == '__main__':
