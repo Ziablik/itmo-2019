@@ -130,8 +130,8 @@ class GetStatisticsTest(TestCase):
 
     def setUp(self):
         """Make test :term:`Order`."""
-        tomato = create_test_ingredient('bacon')
-        sausage = create_test_ingredient('pepper')
+        bacon = create_test_ingredient('bacon')
+        pepper = create_test_ingredient('pepper')
         for onum in range(self.order_num):
             create_test_order(
                 pizza_list=[
@@ -139,8 +139,8 @@ class GetStatisticsTest(TestCase):
                         name=str(onum),
                         price=TEST_PRICE_DEC,
                         ingredient_list=[
-                            tomato,
-                            sausage,
+                            bacon,
+                            pepper,
                         ],
                     ),
                 ],
