@@ -1,30 +1,30 @@
-piazzapp package
+pizzapp package
 ==============
 
 Submodules
 ----------
 
 
-piazzapp.settings module
+pizzapp.settings module
 ----------------------
 
-.. automodule:: piazzapp.settings
+.. automodule:: pizzapp.settings
    :members:
    :undoc-members:
    :show-inheritance:
 
-piazzapp.urls module
+pizzapp.urls module
 ------------------
 
-.. automodule:: piazzapp.urls
+.. automodule:: pizzapp.urls
    :members:
    :undoc-members:
    :show-inheritance:
 
-piazzapp.wsgi module
+pizzapp.wsgi module
 ------------------
 
-.. automodule:: piazzapp.wsgi
+.. automodule:: pizzapp.wsgi
    :members:
    :undoc-members:
    :show-inheritance:
@@ -33,7 +33,7 @@ piazzapp.wsgi module
 Module contents
 ---------------
 
-.. automodule:: piazzapp
+.. automodule:: pizzapp
    :members:
    :undoc-members:
    :show-inheritance:

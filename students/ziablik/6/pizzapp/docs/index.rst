@@ -1,8 +1,8 @@
-.. piazzapp documentation master file, created by
+.. pizzapp documentation master file, created by
    sphinx-quickstart on Sat Oct 19 23:24:07 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-Welcome to piazzapp's documentation!
+Welcome to pizzapp's documentation!
 ==================================
 
 .. toctree::
@@ -10,7 +10,7 @@ Welcome to piazzapp's documentation!
    :caption: Contents:
 
    glossary
-   piazzapp
+   pizzapp
    ziabpizza
 
 
