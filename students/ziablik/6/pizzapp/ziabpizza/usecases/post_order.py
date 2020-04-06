@@ -9,8 +9,10 @@ from ziabpizza.serializers import OrderSerializer
 class PostOrder(object):
     """
     Posts new :term:`Order`.
+
     .. literalinclude:: user_stories/post_order.feature
       :language: gherkin
+
     .. versionadded:: 0.1.0
     """
 

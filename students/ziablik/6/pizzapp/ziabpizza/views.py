@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import JsonResponse
+from django.http import JsonResponse    # noqa: I004
 
 from ziabpizza.response_codes import BAD_REQUEST, CREATED
 from ziabpizza.usecases.get_menu import GetMenu

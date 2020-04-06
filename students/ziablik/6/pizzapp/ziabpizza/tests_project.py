@@ -5,7 +5,7 @@ from decimal import Decimal
 
 from django.test import Client, TestCase
 
-from ziabpizza.models import Ingredient, Order, Pizza
+from ziabpizza.models import Ingredient, Order, Pizza # noqa: I004
 from ziabpizza.response_codes import BAD_REQUEST, CREATED, OK
 from ziabpizza.usecases.get_menu import GetMenu
 

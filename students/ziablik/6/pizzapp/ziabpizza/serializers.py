@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from rest_framework import serializers
+from rest_framework import serializers  # noqa: I004
 
 from ziabpizza.models import Ingredient, Order, Pizza
 
