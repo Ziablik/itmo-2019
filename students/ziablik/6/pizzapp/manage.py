@@ -15,6 +15,7 @@ def main():
     """Main function for manage.py."""
     settings.DEBUG = True
     settings.DJANGO_SETTINGS_MODULE = 'pizzapp.settings'
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizzapp.settings')
     django.setup()
     try:
         from django.core.management import execute_from_command_line  # noqa: WPS433, E501
