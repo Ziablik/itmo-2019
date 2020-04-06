@@ -7,11 +7,11 @@ import sys
 import django
 
 from django.conf import settings
+settings.configure()
 
 
 def main():
     """Main function for manage.py."""
-    settings.configure()
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizzapp.settings')
     django.setup()
     try:
