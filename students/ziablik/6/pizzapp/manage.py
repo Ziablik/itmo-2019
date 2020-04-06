@@ -4,12 +4,6 @@
 import os
 import sys
 
-import django
-
-from django.conf import settings   # noqa: I001
-
-settings.configure()
-
 
 def main():
     """Main function for manage.py."""
