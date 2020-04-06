@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.core.mail import send_mail # noqa: I004
+from django.core.mail import send_mail  # noqa: I001
 
 from ziabpizza.logic.cooking import count_cooking_time
 from ziabpizza.models import Order

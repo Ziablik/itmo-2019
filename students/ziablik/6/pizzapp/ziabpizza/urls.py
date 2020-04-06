@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.urls import path    # noqa: I004
+from django.urls import path    # noqa: I001
 
 from ziabpizza.views import get_pizza, get_statistics, post_order
 
