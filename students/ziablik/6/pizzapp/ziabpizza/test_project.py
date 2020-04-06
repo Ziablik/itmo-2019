@@ -5,7 +5,7 @@ from decimal import Decimal
 from random import randint
 
 import pytest
-from django.test import Client, TestCase    # noqa: I003
+from django.test import Client, TestCase    # noqa: I001
 
 from ziabpizza.models import Ingredient, Order, Pizza   # noqa: I001
 from ziabpizza.response_codes import BAD_REQUEST, CREATED, OK
