@@ -6,7 +6,7 @@ import subprocess  # noqa: S404
 import django
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizzapp.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizzapp.settings_local')
 
 
 def pytest_configure():
