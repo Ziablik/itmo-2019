@@ -5,10 +5,10 @@ Submodules
 ----------
 
 
-piazzapp.settings_local module
+piazzapp.settings module
 ----------------------
 
-.. automodule:: piazzapp.settings_local
+.. automodule:: piazzapp.settings
    :members:
    :undoc-members:
    :show-inheritance:
