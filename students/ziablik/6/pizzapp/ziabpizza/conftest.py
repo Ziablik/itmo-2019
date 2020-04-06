@@ -10,6 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizzapp.settings')
 
 
 def pytest_configure():
+    """`Pytest` automatically calls this function once when tests are run."""
     settings.DEBUG = False
     django.setup()
 
