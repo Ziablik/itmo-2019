@@ -14,10 +14,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-import django
-
-django.setup()
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 NAME = 'NAME'
 dname = os.path.dirname(os.path.abspath(__file__))
@@ -33,7 +29,7 @@ SECRET_KEY = '^)phcn9ojmovleo5@y^doedr1t55-wy3-=9h9aws!d*xelt*az'   # noqa: S105
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testserver']  # noqa: WPS407
+ALLOWED_HOSTS = ['localhost']  # noqa: WPS407
 
 
 # Application definition
