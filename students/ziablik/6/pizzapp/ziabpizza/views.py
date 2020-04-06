@@ -4,6 +4,7 @@ from django.http import JsonResponse    # noqa: I001
 
 from ziabpizza.response_codes import BAD_REQUEST, CREATED
 from ziabpizza.usecases.get_menu import GetMenu
+from ziabpizza.usecases.get_statistics import GetStatistics
 from ziabpizza.usecases.post_order import PostOrder
 
 
@@ -26,4 +27,12 @@ def post_order(request):
 
 def get_statistics(request):
     """Receives request and fetches the necessary data."""
-    return JsonResponse({'foo': 'bar'})
+    if request.method == 'GET':
+        all_orders, by_pizza, by_status = GetStatistics()()
+        return JsonResponse(
+            {
+                'all': all_orders,
+                'by_status': by_status,
+                'by_pizza': by_pizza,
+            },
+        )

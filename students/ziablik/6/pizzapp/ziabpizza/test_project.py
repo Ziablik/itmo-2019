@@ -2,7 +2,9 @@
 
 import json
 from decimal import Decimal
+from random import randint
 
+import pytest
 from django.test import Client, TestCase
 
 from ziabpizza.models import Ingredient, Order, Pizza   # noqa: I001
@@ -74,6 +76,7 @@ class GetMenuTest(TestCase):
         assert ser_data == resp_data
 
 
+@pytest.mark.remote_data
 class PostOrderTest(TestCase):
     """Tests post_order usecase."""
 
@@ -123,25 +126,46 @@ class GetStatisticsTest(TestCase):
     """Tests get_statistics usecase."""
 
     client = Client()
+    order_num = randint(1, 10)  # noqa: S311
 
     def setUp(self):
         """Make test :term:`Order`."""
-        self.order = create_test_order(
-            pizza_list=[
-                create_test_pizza(
-                    name='Bacon with pepper',
-                    price=TEST_PRICE_DEC,
-                    ingredient_list=[
-                        create_test_ingredient('bacon'),
-                        create_test_ingredient('pepper'),
-                    ],
-                ),
-            ],
-            delivery_address=TEST_ADDRESS,
-            client_email=TEST_EMAIL,
-        )
+        tomato = create_test_ingredient('bacon')
+        sausage = create_test_ingredient('pepper')
+        for onum in range(self.order_num):
+            create_test_order(
+                pizza_list=[
+                    create_test_pizza(
+                        name=str(onum),
+                        price=TEST_PRICE_DEC,
+                        ingredient_list=[
+                            tomato,
+                            sausage,
+                        ],
+                    ),
+                ],
+                delivery_address=TEST_ADDRESS,
+                client_email=TEST_EMAIL,
+            )
 
     def test_can_get_statistics(self):
         """Make GET request and check status code and :term:`Pizza` list."""
-        response = self.client.get(path='/api/statistics/pizza')
+        response = self.client.get(path='/api/statistics/pizza/')
+
         assert response.status_code == OK
+
+        resp_data = json.loads(response.content.decode())
+        expected = {
+            'all': self.order_num,
+            'by_status': {
+                'accept': self.order_num,
+                'preparation': 0,
+                'delivery': 0,
+                'done': 0,
+            },
+            'by_pizza': {
+                str(onum + 1): 1 for onum in range(self.order_num)
+            },
+        }
+
+        assert resp_data == expected
