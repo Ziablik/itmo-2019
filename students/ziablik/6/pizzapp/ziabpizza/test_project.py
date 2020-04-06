@@ -7,9 +7,9 @@ from random import randint
 import pytest
 from django.test import Client, TestCase    # noqa: I001
 
-from ziabpizza.models import Ingredient, Order, Pizza   # noqa: I001
-from ziabpizza.response_codes import BAD_REQUEST, CREATED, OK
-from ziabpizza.usecases.get_menu import GetMenu
+from .models import Ingredient, Order, Pizza   # noqa: I001
+from .response_codes import BAD_REQUEST, CREATED, OK
+from .usecases.get_menu import GetMenu
 
 TEST_ADDRESS = 'Kronverskiy prospect, Russia'
 TEST_EMAIL = 'ziablikl@mail.ru'
