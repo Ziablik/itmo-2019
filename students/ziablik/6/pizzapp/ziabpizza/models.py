@@ -6,7 +6,7 @@ from django.db import models
 class Ingredient(models.Model):
     """A model that describes :term:`Ingredient` object."""
 
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=True)     # noqa: WPS432
 
     def __str__(self):
         """Returns string representation of :term:`Ingredient`."""
@@ -16,7 +16,7 @@ class Ingredient(models.Model):
 class Pizza(models.Model):
     """A model that describes :term:`Pizza` object."""
 
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=True)     # noqa: WPS432
     price = models.DecimalField(
         decimal_places=2,
         max_digits=8,
@@ -33,7 +33,7 @@ class Order(models.Model):
 
     creation_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
-        max_length=20,
+        max_length=20,      # noqa: WPS432
         choices=[
             ('accept', 'accept'),
             ('preparation', 'preparation'),
@@ -44,7 +44,7 @@ class Order(models.Model):
     )
     pizza_list = models.ManyToManyField(Pizza)
     delivery_address = models.CharField(max_length=100)
-    client_email = models.EmailField(max_length=50)
+    client_email = models.EmailField(max_length=50)     # noqa: WPS432
     email_is_sent = models.BooleanField(default=False)
 
     def __str__(self):
