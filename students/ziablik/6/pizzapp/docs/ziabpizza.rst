@@ -56,7 +56,7 @@ ziabpizza.models module
 ziabpizza.test_project module
 -------------------------
 
-.. automodule:: ziabpizza.test_s
+.. automodule:: ziabpizza.test_project
    :members:
    :undoc-members:
    :show-inheritance:
